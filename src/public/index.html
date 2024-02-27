@@ -386,29 +386,32 @@ input:focus-visible + label {
 }
 
 /*web responsive */
+@media only screen and (max-width: 600px) {
+  /* Ejemplo de ajuste de tamaño de fuente para pantallas pequeñas */
+  body {
+    font-size: 16px;
+  }
 
-@media only screen and (max-width: 768px) {
-    /* Estilos específicos para dispositivos móviles */
-    .header {
-        height: auto;
-        padding: 10px; /* Ajusta el relleno para dispositivos móviles */
-    }
+  /* Ejemplo de ajuste de diseño de la barra de navegación para pantallas pequeñas */
+  .header {
+    flex-direction: column;
+    height: auto;
+  }
 
-    .header .logo img {
-        height: 50px; /* Ajusta el tamaño del logo para dispositivos móviles */
-    }
+  .header .logo {
+    margin-bottom: 10px;
+  }
 
-    /* Más estilos para dispositivos móviles */
-}
+  .header .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* Media query para tabletas */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-    /* Estilos específicos para tabletas */
-}
+  .header .nav-links li {
+    padding: 10px 0;
+  }
 
-/* Media query para pantallas más grandes (escritorios) */
-@media only screen and (min-width: 1024px) {
-    /* Estilos específicos para pantallas más grandes */
+  /* Otros ajustes necesarios para elementos específicos */
 }
 
     </style>
