@@ -17,7 +17,7 @@
   box-sizing: border-box;
   margin: 0;
   padding:0;
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 /* body*/
@@ -383,6 +383,32 @@ input:focus-visible + label {
   text-decoration: none;
   color: white;
   line-height: 2em;
+}
+
+/*web responsive */
+
+@media only screen and (max-width: 768px) {
+    /* Estilos específicos para dispositivos móviles */
+    .header {
+        height: auto;
+        padding: 10px; /* Ajusta el relleno para dispositivos móviles */
+    }
+
+    .header .logo img {
+        height: 50px; /* Ajusta el tamaño del logo para dispositivos móviles */
+    }
+
+    /* Más estilos para dispositivos móviles */
+}
+
+/* Media query para tabletas */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Estilos específicos para tabletas */
+}
+
+/* Media query para pantallas más grandes (escritorios) */
+@media only screen and (min-width: 1024px) {
+    /* Estilos específicos para pantallas más grandes */
 }
 
     </style>
