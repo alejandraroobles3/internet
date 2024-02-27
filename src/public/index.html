@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirada Analítica</title>
+    <link rel="shortcut icon" href="https://mirada2024.blob.core.windows.net/mirada2024/miniatura.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,600;6..12,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        
+/* pagina completa*/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding:0;
+  font-size: 20px;
+}
+
+/* body*/
+body{
+  background-color: #dcd9d5;
+}
+
+/*Barra de navegacion*/
+.header {
+  background-color: #1b3039;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  padding: 5px 10%;
+  object-fit: cover;
+  font-family:  ' Nunito Sans Sans', sans-serif;
+}
+
+.header .logo img{
+  height: 80px;
+  width: auto;
+  transition: all 0.3s;
+}
+
+.header .logo{
+  cursor:pointer;
+}
+
+.header .logo .img:hover{
+  transform: scale(1.2);
+}
+
+.header .nav-links{
+  list-style: none;
+}
+
+.header .nav-links li{
+  display: inline-block;
+  padding: 0 20px;
+
+}
+
+.header .nav-links li:hover{
+  transform:scale(1.1);
+
+}
+
+.header .nav-links a{
+  font-size: 500;
+  color: #efefef;
+  text-decoration: none;
+}
+
+.header .nav-links li a:hover{
+  color:rgb(248, 186, 72);
+}
+
+/*Imagen grande*/
+.logo-grande{
+  background-color: #191826;
+}
+.logo-grande img{
+  width:100%;
+  object-fit: cover;
+  animation: fadeIn 5s;
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+/*Frase explicación*/
+
+.frase p{
+  font-family: 'SemiBold 600',  Nunito Sans ;
+  font-weight: 200;
+  font-size: 2.2rem;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 15%;
+  margin-bottom: 8%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* Caja de busqueda*/
+#cand{
+  font-family: 'Bold 700',  Nunito Sans ;
+  font-weight: 600;
+  font-size: 2.2rem;
+  text-align: center;
+  vertical-align: middle;
+  margin: 5%;
+}
+
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  display: block;
+}
+
+.tabset > label {
+  position: relative;
+  display: inline-flex;
+  padding: 15px 15px 25px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 0 auto;
+  font-family: 'SemiBold 600',  Nunito Sans ;
+
+}
+
+
+.tabset > label::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 22px;
+  height: 4px;
+  background: rgb(248, 186, 72);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+input:focus-visible + label {
+  outline: 2px solid rgb(224, 201, 85);
+  border-radius: 3px;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label,
+.tabset > input:checked + label {
+  color: rgb(20, 35, 49);
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+  background: rgb(20, 35, 49);
+}
+
+.tabset > input:checked + label {
+  border-color: #ccc;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+.tab-panel {
+  padding: 30px 0;
+  border-top: 1px solid rgb(248, 186, 72);
+  text-align: justify;
+  font-family: 'SemiBold 600',  Nunito Sans ;
+}
+
+
+.tabset {
+  max-width: 65em;
+  position: relative;
+  text-align: center; /* Align labels in the center */
+  margin: 5%;
+}
+
+#busqueda{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin: 10%;
+}
+
+/*imagen de candidatos*/
+#marzen img{
+  width: 100px;
+  height:100px;
+  margin: 10px;
+  justify-content: left;
+}
+/*Colaboradores*/
+#colaboradores{
+  background-color: rgb(248, 186, 72);
+  border-color: #3b3b3b;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.colaboradores{
+  margin-top: 2%;
+}
+
+.colaboradores p{
+  font-family: 'SemiBold 600',  Nunito Sans ;
+  font-weight: 100;
+  font-size: 1rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#titulo{
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-top:5%;
+}
+
+.divider {
+  border-bottom: 2px solid rgb(249, 202, 115);
+  margin-top: 1%;
+  box-sizing: border-box;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/*Instituciones*/
+
+#instituciones{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(248, 186, 72);
+}
+
+.instituciones{
+  margin: 2%;
+  width:100%;
+  position: relative;
+  justify-content: center;
+
+}
+
+#titulote{
+  font-family: 'SemiBold 600',  Nunito Sans ;
+  font-weight: 200;
+  font-size: 2.2rem;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.instituciones img{
+  width:20%;
+  display: flex;
+  margin: auto;
+  object-fit: cover;
+  display: list-item;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(0%);
+}
+
+.dividerd{
+  border-bottom: 1px solid #6c6c6c;
+  margin-top: 1%;
+  box-sizing: border-box;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+/*footer*/
+
+.pie-pagina{
+  width:100%;
+  background-color: #191826;
+  font-family:  ' Nunito Sans', sans-serif;
+  position: relative;
+
+}
+
+.pie-pagina .grupo-1{
+  width:100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
+}
+
+.pie-pagina .grupo-1 .box figure{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.pie-pagina .grupo-1 .box figure img{
+  width: 350px;
+}
+
+.pie-pagina .grupo-1 .box h2{
+  color: white;
+  margin-bottom: 25px;
+  font-size: 20px;
+
+}
+
+.pie-pagina .grupo-1 .box a{
+  color: #efefef;
+  margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a{
+  display : inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color:#fff;
+  margin-right: 10px;
+  background-color: #0d2033;
+  text-align: center;
+  transition: all 300ms ease;
+
+}
+
+.pie-pagina .grupo-1 .red-social a:hover{
+  color:rgb(251, 187, 68);
+}
+
+.pie-pagina .grupo-2{
+  background-color: #1b3039;
+  padding: 15px 10px;
+  text-align: center;
+  color: #fff;
+
+}
+
+.pie-pagina .grupo-2 small{
+  font-size: 15px;
+  font-family: 'ExtraLight 200',  Nunito Sans ;
+}
+
+.pie-pagina .grupo-2 small b{
+  font-size: 15px;
+  font-family: 'ExtraLight 200',  Nunito Sans ;
+}
+
+.sobre a{
+  text-decoration: none;
+  color: white;
+  line-height: 2em;
+}
+
+    </style>
+</head>
+
+<body >
+    <!--barra de navegacion-->
+    <header class="header">
+        <div class="logo">
+            <img src="https://mirada2024.blob.core.windows.net/mirada2024/logobarra.png" alt="logo miniatura">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#frase">About</a></li>
+                <li><a href="#busqueda">Candidatos</a></li>
+                <li><a href="#resultados">Colaboradores</a></li>
+                <li><a href="#colaboradores">Instituciones</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- frase-->
+        <!-- logo  -->
+        <section id="logo-grande">
+            <div class="logo-grande">
+                <img class="img" src="https://mirada2024.blob.core.windows.net/mirada2024/azul.PNG" loading="lazy"/>
+            </div>
+        </section>
+        <section id="frase">
+            <div class="frase">
+                <p>"Explora el panorama político en México antes de las elecciones, en donde podrás analizar el nivel de aceptacion ciudadana dentro de las redes sociales de cada uno de los candidatos politicos de las proximas elecciones. Para asi tomar desiciones estrategicas"</p>
+            </div>
+        </section>
+        <div class="pagina">
+        <!-- busqueda en la base  -->
+        <p id="cand">Explora a los candidatos</p>
+        <section id="busqueda">
+            <div class="tabset">
+                
+                <!-- Tab 1 -->
+                <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+                <label for="tab1">Presidencia a la republica</label>
+                <!-- Tab 2 -->
+                <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+                <label for="tab2">Gobernadores</label>
+                <!-- Tab 3 -->
+                <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+                <label for="tab3">Alcaldes</label>
+                
+                <div class="tab-panels">
+                <section id="marzen" class="tab-panel">
+                    <p style="margin-top: 5%;"><strong>Jorge Álvarez Máynez</strong></p>
+                    <div style="display: flex; align-items: flex-start;">
+                        <img src="https://mirada2024.blob.core.windows.net/mirada2024/jorge.jpg" alt="candidato" style="margin-right: 10px;">
+                        <div>
+                            <p ><strong>Partido Político:</strong> Movimiento Ciudadano</p>
+                            <div id="resultados3"></div>
+
+                        </div>
+                    </div>
+                    <p style="margin-top: 5%;"><strong>Xóchitl Gálvez Ruiz</strong></p>
+                    <div style="display: flex; align-items: flex-start;">
+                        <img src="https://mirada2024.blob.core.windows.net/mirada2024/xochitl.jpg" alt="candidato" style="margin-right: 10px;">
+                        <div>
+                            <p><strong>Partido Político:</strong> Frente Amplio Por México (PRI, PAN, PRD)</p>
+                            <div id="resultados1"></div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 5%;"><strong>	Claudia Sheinbaum Pardo</strong></p>
+                    <div style="display: flex; align-items: flex-start;">
+                        <img src="https://mirada2024.blob.core.windows.net/mirada2024/claudia.jpg" alt="candidato" style="margin-right: 10px;">
+                        <div>
+                            <p><strong>Partido Político:</strong> MORENA</p>
+                            <div id="resultados2"></div>
+                        </div>
+                    </div>
+                </section>
+                <section id="rauchbier" class="tab-panel">
+                    <h2>6B. Rauchbier</h2>
+                    <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
+                    <p><strong>History:</strong> A historical specialty of the city of Bamberg, in the Franconian region of Bavaria in Germany. Beechwood-smoked malt is used to make a Märzen-style amber lager. The smoke character of the malt varies by maltster; some breweries produce their own smoked malt (rauchmalz).</p>
+                </section>
+                <section id="dunkles" class="tab-panel">
+                    <h2>6C. Dunkles Bock</h2>
+                    <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
+                    <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
+                </section>
+                </div>             
+            </div>
+        </section>
+            </div>
+        </section>
+        <!--colaboradores -->
+        <section id="colaboradores">    
+            <div class="colaboradores">
+                <p id="titulote">Colaboradores</p>
+                <p id="titulo">Coordinador del proyecto</p>
+                <p>Luis Antonio Medellín Serna</p>
+                <p></p>
+                <p id="titulo">Desarrollo</p>
+                <p>Alejandra Robles Mora</p>
+                <p>alejandra.robles7477@alumnos.udg.mx</p>
+            </div>
+        </section>
+        <section id="instituciones">
+            <div class="instituciones justify-between">
+                <div class="divider"></div>
+                <p id="titulote">Instituciones</p>
+                <a alt="Centro Universitario de Ciencias Exactas e Ingenieria" href="http://www.cucei.udg.mx"><img src="https://mirada2024.blob.core.windows.net/mirada2024/cucei_logo.png"></a>
+                <a alt="Universidad de Guadalajara" href="https://www.udg.mx"><img src="https://mirada2024.blob.core.windows.net/mirada2024/udg_logo.png" ></a>
+            </div>
+        </section>   
+    </main>
+    <footer class="pie-pagina">
+        <!--instituciones-->
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <img src="https://mirada2024.blob.core.windows.net/mirada2024/azul.PNG" alt="logo">
+                    </a>
+                </figure>
+            </div>
+
+            <div class="box sobre">
+                <h2>SOBRE NOSOTROS</h2>
+                <a alt="Repositiorio del proyecto" href="https://github.com/alejandraroobles3/Mirada_analitica">Repositorio del proyecto</a>
+                <p> </p>
+                <a alt="Documentacion del proyecto" href="https://drive.google.com/drive/folders/1SFqwDhTN-VCuoLzrEuzWw-7s6VCfzjpo">Documentacion del proyecto</a>
+            </div>
+
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="https://github.com/alejandraroobles3"class="fa fa-github"></a>
+                    <a href="https://www.linkedin.com/in/alejandra-robles-mora-5b413b228/" class="fa fa-linkedin"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2021 <b>Mirada Analítica</b> -Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+    <script>
+      // Función para obtener y mostrar los resultados para un candidato específico
+      function obtenerResultados(idCandidato, resultadosDivId) {
+          fetch(`/data?id_candidato=${idCandidato}`)
+              .then(response => response.json())
+              .then(data => {
+                  const resultadosDiv = document.getElementById(resultadosDivId);
+  
+                  // Variables para almacenar los conteos
+                  let totalDatos = 0;
+                  let datosPositivos = 0;
+                  let datosNegativos = 0;
+  
+                  // Iterar sobre los datos recibidos
+                  Object.keys(data).forEach(tabla => {
+                      const tablaData = data[tabla][0];
+                      if (tabla === 'candidato') {
+                          totalDatos = parseInt(tablaData.count || tablaData.numero_de_datos);
+                      } else if (tabla === 'tabla2') {
+                          datosPositivos = parseInt(tablaData.count || tablaData.numero_de_datos);
+                      } else if (tabla === 'tabla3') {
+                          datosNegativos = parseInt(tablaData.count || tablaData.numero_de_datos);
+                      }
+                  });
+  
+                  // Calcular porcentajes
+                  const porcentajePositivos = (datosPositivos / totalDatos) * 100;
+                  const porcentajeNegativos = (datosNegativos / totalDatos) * 100;
+  
+                  // Mostrar resultados
+                  resultadosDiv.innerHTML += `<p><strong>Total de datos:</strong> ${totalDatos}</p>`;
+                  resultadosDiv.innerHTML += `<p><strong>Datos positivos:</strong> ${datosPositivos}  ----------  <strong>Porcentaje:</strong> ${porcentajePositivos.toFixed(2)}%</p>`;
+                  resultadosDiv.innerHTML += `<p><strong>Datos negativos:</strong> ${datosNegativos}  ----------  <strong>Porcentaje:</strong> ${porcentajeNegativos.toFixed(2)}%</p>`;
+              })
+              .catch(error => console.error('Error:', error));
+      }
+  
+      // Llamar a la función para cada ID de candidato y contenedor de resultados
+      obtenerResultados(1, 'resultados1');
+      obtenerResultados(2, 'resultados2');
+      obtenerResultados(3, 'resultados3');
+  </script>
+  
+  
+  
+</body>
+</html>
